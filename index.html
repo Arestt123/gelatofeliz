@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gelato Feliz</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="encabezado">
+      <div>
+        <h1>🍦 Gelato Feliz</h1>
+        <p id="subtitulo">Elige a tu personaje para comenzar el turno</p>
+      </div>
+      <div class="indicador" id="indicador-estado">SELECCIÓN <span>•</span> EQUIPO</div>
+    </header>
+
+    <section id="pantalla-seleccion" class="pantalla-seleccion">
+      <div class="barra-filtro">
+        <button type="button" class="btn-filtro activo" data-rol="Todos">Todos (9)</button>
+        <button type="button" class="btn-filtro" data-rol="Mesera/o">Meseros (4)</button>
+        <button type="button" class="btn-filtro" data-rol="Cocina">Cocina (3)</button>
+        <button type="button" class="btn-filtro" data-rol="Domiciliario">Domiciliarios (2)</button>
+      </div>
+
+      <div id="grid-personajes" class="grid-personajes"></div>
+
+      <div class="pie-seleccion">
+        <div id="info-seleccionado" class="info-seleccionado">
+          Selecciona un personaje para ver su rol
+        </div>
+        <button type="button" id="btn-jugar" class="btn-jugar" disabled>Comenzar turno</button>
+      </div>
+    </section>
+
+    <section id="zona-juego" class="zona-juego oculto">
+      <canvas id="juego" width="960" height="540" aria-label="Juego Gelato Feliz"></canvas>
+
+      <!-- Controles táctiles para celular / pantallas pequeñas -->
+      <div id="controles-movil" class="controles-movil" aria-label="Controles táctiles">
+        <div class="pad-direccion">
+          <button type="button" class="btn-control btn-arriba" data-tecla="arrowup" aria-label="Arriba">▲</button>
+          <button type="button" class="btn-control btn-izquierda" data-tecla="arrowleft" aria-label="Izquierda">◀</button>
+          <button type="button" class="btn-control btn-derecha" data-tecla="arrowright" aria-label="Derecha">▶</button>
+          <button type="button" class="btn-control btn-abajo" data-tecla="arrowdown" aria-label="Abajo">▼</button>
+        </div>
+        <button type="button" id="btn-accion-e" class="btn-accion-e" aria-label="Recoger o entregar">E</button>
+      </div>
+    </section>
+
+    <footer class="instrucciones">
+      <span><b>W A S D</b> o <b>↑ ↓ ← →</b> para moverte • <b>E</b> recoger/entregar</span>
+      <span id="texto-footer">Elige tu personaje</span>
+    </footer>
+  </main>
+
+  <script src="domicilios.js"></script>
+  <script src="juego.js"></script>
+</body>
+</html>
